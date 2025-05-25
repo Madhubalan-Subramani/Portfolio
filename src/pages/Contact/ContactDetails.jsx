@@ -111,7 +111,7 @@ export default function ContactDetails() {
       </motion.h2>
 
       <motion.p variants={itemVariants} className="text-sm mb-8">
-        Got a project or an idea in mind ? Let’s talk ! &nbsp; I’m here to bring
+        Got a project or an idea in mind ? Let’s talk ! I’m here to bring
         your vision to life.
       </motion.p>
 
