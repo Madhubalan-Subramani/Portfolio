@@ -1,6 +1,7 @@
 import Images from "../../utils/Images";
 import { motion } from "framer-motion";
 import SkillCard from "../../components/SkillCard";
+import { useEffect, useState } from "react";
 
 const skills = [
   { name: "HTML 5", logo: Images.SkillsImages.html_logo, percent: 90 },
@@ -25,6 +26,18 @@ const containerVariants = {
 };
 
 const Skills = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    const checkTouch = () => {
+      setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches);
+    };
+    checkTouch();
+    window.addEventListener("resize", checkTouch);
+    return () => window.removeEventListener("resize", checkTouch);
+  }, []);
+
   return (
     <div className="text-center text-white flex flex-col items-center justify-center min-h-screen pb-10">
       <div className="flex flex-col items-center">
@@ -78,7 +91,14 @@ const Skills = () => {
         viewport={{ once: false, amount: 0.2 }}
       >
         {skills.map((skill, index) => (
-          <SkillCard key={index} skill={skill} />
+          <SkillCard
+            key={index}
+            skill={skill}
+            isActive={activeIndex === index}
+            onActivate={() => setActiveIndex(index)}
+            onDeactivate={() => setActiveIndex(null)}
+            isTouchDevice={isTouchDevice}
+          />
         ))}
       </motion.div>
     </div>
