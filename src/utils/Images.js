@@ -1,39 +1,40 @@
+const base = import.meta.env.BASE_URL;
 
 const UserImages = {
-  home_Image: "/assets/home_logo.png",
-  about_Image: "/assets/about_logo.png",
+  home_Image: `${base}assets/home_logo.png`,
+  about_Image: `${base}assets/about_logo.png`,
 };
 
 const SkillsImages = {
-  html_logo: "/assets/html-logo.png",
-  css_logo: "/assets/css-logo.png",
-  js_logo: "/assets/JavaScript-logo.png",
-  react_logo: "/assets/react-logo.png",
-  tailwind_logo: "/assets/tailwind-logo.png",
-  bootstrap_logo: "/assets/bootstrap-logo.png",
-  flutter_logo: "/assets/flutter-logo.png",
-  mysql_logo: "/assets/mysql-logo.png",
-  firebase_logo: "/assets/fire-base-logo.png",
-  figma_logo: "/assets/figma-logo.png",
-  dart_logo: "/assets/dart-logo.png",
+  html_logo: `${base}assets/html-logo.png`,
+  css_logo: `${base}assets/css-logo.png`,
+  js_logo: `${base}assets/JavaScript-logo.png`,
+  react_logo: `${base}assets/react-logo.png`,
+  tailwind_logo: `${base}assets/tailwind-logo.png`,
+  bootstrap_logo: `${base}assets/bootstrap-logo.png`,
+  flutter_logo: `${base}assets/flutter-logo.png`,
+  mysql_logo: `${base}assets/mysql-logo.png`,
+  firebase_logo: `${base}assets/fire-base-logo.png`,
+  figma_logo: `${base}assets/figma-logo.png`,
+  dart_logo: `${base}assets/dart-logo.png`,
 };
 
 const SoftwareImages = {
-  vsCode_logo: "/assets/vs-code-logo.png",
-  github_logo: "/assets/github-logo.png",
-  android_studio_logo: "/assets/android-studio.png",
+  vsCode_logo: `${base}assets/vs-code-logo.png`,
+  github_logo: `${base}assets/github-logo.png`,
+  android_studio_logo: `${base}assets/android-studio.png`,
 };
 
 const ProjectImages = {
-  login_project: "/assets/project-login.png",
-  sherwin_project: "/assets/project-sherwin.png",
-  calculator_project: "/assets/project-calculator.png",
-  farmtracker_project: "/assets/project-farm-tracker.jpg",
-  docengage_project: "/assets/project-docengage.png",
+  login_project: `${base}assets/project-login.png`,
+  sherwin_project: `${base}assets/project-sherwin.png`,
+  calculator_project: `${base}assets/project-calculator.png`,
+  farmtracker_project: `${base}assets/project-farm-tracker.jpg`,
+  docengage_project: `${base}assets/project-docengage.png`,
 };
 
 const OtherImages = {
-  contact_bg:"/assets/contact-background.jpg"
+  contact_bg: `${base}assets/contact-background.jpg`,
 };
 
 const Images = {
