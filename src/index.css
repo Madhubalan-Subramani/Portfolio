@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.active-nav {
+  color: #7c3aed;
+  font-weight: 700;
+}
+
+.CircularProgressbar-text {
+  font-weight: bold !important;
+}
+
+
