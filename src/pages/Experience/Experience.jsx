@@ -4,10 +4,10 @@ import TimelineCard from "../../components/TimelineCard";
 const experiences = [
   {
     year: "2023 - Present",
-    role: "Flutter Developer",
+    role: "UI UX Developer",
     company: "Swithin & Sherwin Pvt Ltd",
     description:
-      "Developed three Flutter applications with seamless, visually striking interfaces, handling complete screen design for an intuitive user experience.",
+      "Designed three Flutter applications with seamless, visually striking interfaces, handling complete screen design for an intuitive user experience.",
   },
   {
     year: "2022 - 2023",
