@@ -9,6 +9,7 @@ const SkillsImages = {
   html_logo: `${base}assets/html-logo.png`,
   css_logo: `${base}assets/css-logo.png`,
   js_logo: `${base}assets/JavaScript-logo.png`,
+  ts_logo: `${base}assets/typescript-logo.png`,
   react_logo: `${base}assets/react-logo.png`,
   tailwind_logo: `${base}assets/tailwind-logo.png`,
   bootstrap_logo: `${base}assets/bootstrap-logo.png`,
