@@ -4,16 +4,16 @@ import SkillCard from "../../components/SkillCard";
 import { useEffect, useState } from "react";
 
 const skills = [
-  { name: "HTML 5", logo: Images.SkillsImages.html_logo, percent: 90 },
-  { name: "CSS 3", logo: Images.SkillsImages.css_logo, percent: 90 },
-  { name: "JavaScript", logo: Images.SkillsImages.js_logo, percent: 90 },
+  { name: "HTML 5", logo: Images.SkillsImages.html_logo, percent: 95 },
+  { name: "CSS 3", logo: Images.SkillsImages.css_logo, percent: 95 },
+  { name: "JavaScript", logo: Images.SkillsImages.js_logo, percent: 95 },
   { name: "TypeScript", logo: Images.SkillsImages.ts_logo, percent: 75 },
   { name: "React.js", logo: Images.SkillsImages.react_logo, percent: 85 },
   { name: "Tailwind", logo: Images.SkillsImages.tailwind_logo, percent: 90 },
   { name: "Bootstrap", logo: Images.SkillsImages.bootstrap_logo, percent: 85 },
-  { name: "Flutter", logo: Images.SkillsImages.flutter_logo, percent: 80 },
+  { name: "Flutter", logo: Images.SkillsImages.flutter_logo, percent: 60 },
   { name: "Firebase", logo: Images.SkillsImages.firebase_logo, percent: 70 },
-  { name: "Figma", logo: Images.SkillsImages.figma_logo, percent: 75 },
+  { name: "Figma", logo: Images.SkillsImages.figma_logo, percent: 50 },
   { name: "MySQL", logo: Images.SkillsImages.mysql_logo, percent: 50 },
 ];
 

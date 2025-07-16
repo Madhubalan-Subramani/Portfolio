@@ -7,14 +7,12 @@ const experiences = [
     role: "UI UX Developer",
     company: "Swithin & Sherwin Pvt Ltd",
     description:
-      "Designed three Flutter applications with seamless, visually striking interfaces, handling complete screen design for an intuitive user experience.",
-  },
+      "I developed responsive web applications using React.js, creating 60+ reusable screens with optimized architecture. I also built a real-time clothing personalization feature that boosted user conversions by 45%, delivering intuitive and engaging user experiences."  },
   {
     year: "2022 - 2023",
-    role: "Web Developer",
+    role: "Software Developer",
     company: "DocEngage Pvt Ltd",
-    description:
-      "Redesigned the DocEngage healthcare app UI, enhancing user experience across seven modules with advanced search, seamless navigation, and cloud deployment.",
+    description: "I upgraded and maintained UI for healthcare modules using React.js, ensuring responsive design and consistent user experience. I implemented key usability features that improved task efficiency by 30% and resolved 1,000+ frontend issues, enhancing system stability."
   },
 ];
 

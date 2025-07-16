@@ -1,6 +1,7 @@
 import CommonButton from "../../components/Buttons/CommonButton";
 import { InputField, TextareaField } from "../../components/InputField";
 import { motion } from "framer-motion";
+import FormSubmit from "./FormSubmit";
 
 export default function ContactForm() {
   const containerVariants = {
@@ -40,6 +41,7 @@ export default function ContactForm() {
       </motion.h2>
 
       <motion.form
+        onSubmit={FormSubmit}
         className="space-y-4 text-gray-800"
         initial="hidden"
         whileInView="visible"
@@ -71,7 +73,7 @@ export default function ContactForm() {
           className="flex justify-center pt-4"
           variants={itemVariants}
         >
-          <CommonButton name="Send Message" />
+          <CommonButton name="Send Message" type="submit" />
         </motion.div>
       </motion.form>
     </>

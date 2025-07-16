@@ -13,22 +13,19 @@ import SocialIcon from "../../components/Buttons/SocialIcon";
 import { motion } from "framer-motion";
 
 const ContactItem = ({ icon, children, link }) => {
-  return (
+  const content = (
     <div className="flex items-center gap-3 text-white bg-white/10 p-3 rounded-sm hover:bg-white/20 hover:scale-[1.01] transition-transform duration-200 overflow-x-auto">
       <FontAwesomeIcon icon={icon} />
-      {link ? (
-        <a
-          href={link}
-          className="text-xs md:text-sm"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {children}
-        </a>
-      ) : (
-        <p className="text-xs md:text-sm mb-0">{children}</p>
-      )}
+      <p className="text-xs md:text-sm mb-0">{children}</p>
     </div>
+  );
+
+  return link ? (
+    <a href={link} target="_blank" rel="noopener noreferrer">
+      {content}
+    </a>
+  ) : (
+    content
   );
 };
 
@@ -52,14 +49,15 @@ const SocialIconList = () => (
     {socialLinks.map(({ icon, url }, i) => (
       <motion.div
         key={i}
-        initial={{ opacity: 0, scale: 0.7 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.9 }}
+        initial={{ opacity: 0, scale: 0.7, y: 30 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.8 }}
         transition={{
           type: "spring",
-          stiffness: 260,
-          damping: 20,
-          delay: i * 0.3,
+          stiffness: 100,
+          damping: 15,
+          delay: i * 0.4,
+          duration: 2,
         }}
         style={{ cursor: "pointer" }}
         onClick={() => window.open(url, "_blank")}
@@ -111,8 +109,8 @@ export default function ContactDetails() {
       </motion.h2>
 
       <motion.p variants={itemVariants} className="text-sm mb-8">
-        Got a project or an idea in mind ? Let’s talk ! I’m here to bring
-        your vision to life.
+        Got a project or an idea in mind ? Let’s talk ! I’m here to bring your
+        vision to life.
       </motion.p>
 
       <motion.div
@@ -129,7 +127,7 @@ export default function ContactDetails() {
           </ContactItem>
         </motion.div>
         <motion.div variants={itemVariants}>
-          <ContactItem icon={faPhone} inline>
+          <ContactItem icon={faPhone} link="tel:+918946059125" inline>
             +91 8946059125
           </ContactItem>
         </motion.div>

@@ -10,6 +10,9 @@ const projectData = [
       "Farm Tracker helps farmers track and manage their farm activities efficiently with real-time insights, making it easy to record, view, and filter past cultivation work.",
     tech: [
       Images.SkillsImages.react_logo,
+      Images.SkillsImages.html_logo,
+      Images.SkillsImages.css_logo,
+      Images.SkillsImages.js_logo,
       Images.SkillsImages.tailwind_logo,
       Images.SkillsImages.firebase_logo,
       Images.SoftwareImages.vsCode_logo,
@@ -22,6 +25,7 @@ const projectData = [
     description:
       "Implemented UI/UX designs for seven different modules in DocEngage, ensuring user-friendly and added new functionality.",
     tech: [
+      Images.SkillsImages.react_logo,
       Images.SkillsImages.html_logo,
       Images.SkillsImages.css_logo,
       Images.SkillsImages.js_logo,
@@ -33,13 +37,16 @@ const projectData = [
   },
   {
     image: Images.ProjectImages.sherwin_project,
-    type: "Cross Platform Application",
+    type: "Web Application",
     description:
       "Designed and implemented UI/UX layouts screens for the Sherwin e-commerce app, including a new customization feature for personalized shopping.",
     tech: [
-      Images.SkillsImages.flutter_logo,
-      Images.SkillsImages.dart_logo,
-      Images.SoftwareImages.android_studio_logo,
+      Images.SkillsImages.react_logo,
+      Images.SkillsImages.html_logo,
+      Images.SkillsImages.css_logo,
+      Images.SkillsImages.js_logo,
+      Images.SkillsImages.tailwind_logo,
+      Images.SoftwareImages.vsCode_logo,
     ],
     link: null,
   },

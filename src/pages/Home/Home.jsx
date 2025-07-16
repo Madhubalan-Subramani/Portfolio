@@ -11,6 +11,7 @@ import CommonIconButton from "../../components/Buttons/IconButton";
 import SocialIcon from "../../components/Buttons/SocialIcon";
 import { motion } from "framer-motion";
 import { resumeDownload } from "../../components/Buttons/ResumeDownload";
+import { HireMe } from "../../components/Buttons/hireMe";
 
 const Home = () => {
   return (
@@ -44,9 +45,10 @@ const Home = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <p>
-            Frontend developer with 3 years of experience crafting sleek,
-            high-impact web apps. Expert in React and modern UI, with a passion
-            for clean design and seamless UX.
+            Front-End Developer with 3 years of experience building scalable web
+            applications using React.js. Skilled at transforming Figma designs
+            into responsive, reusable components with a focus on clean code,
+            performance optimization, and RESTful API integration.
           </p>
         </motion.div>
 
@@ -60,7 +62,7 @@ const Home = () => {
             ease: "easeOut",
           }}
         >
-          <CommonButton name={"Hire Me"} />
+          <CommonButton name={"Hire Me"} onClick={HireMe} />
           <CommonIconButton
             name={"Download CV"}
             icon={<FontAwesomeIcon icon={faFile} />}

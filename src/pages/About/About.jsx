@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Images from "../../utils/Images";
 import { resumeDownload } from "../../components/Buttons/ResumeDownload";
 
-
 const About = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center gap-4 w-full text-white py-10 overflow-hidden px-1 md:px-2 min-h-[90vh]">
@@ -60,10 +59,11 @@ const About = () => {
           viewport={{ once: false, amount: 0.9 }}
         >
           <p>
-            I am Madhubalan, a web developer skilled in React. I focus on
-            building user-friendly applications with clean, efficient code. I
-            enjoy solving problems, learning new technologies, and working with
-            teams to create great user experiences.
+            I’m Madhubalan, a Front-End Developer with 3 years of experience
+            building responsive web apps using React.js. I specialize in
+            transforming Figma designs into interactive, reusable UI components
+            with clean code. I focus on creating scalable, high-performance
+            interfaces that align with user needs and business goals.
           </p>
         </motion.div>
 
@@ -132,7 +132,7 @@ const About = () => {
           >
             {[
               "Experience: 3 Years",
-              "Skills: React Js, JS, HTML 5, CSS, Tailwind & Flutter",
+              "Skills: React Js, Java Script, HTML5, CSS3, Type Script, Tailwind and Bootstrap",
               "Current Job: Swithin & Sherwin Pvt Ltd",
               "Education: BE - Mechanical Engineering",
             ].map((text, i) => (
