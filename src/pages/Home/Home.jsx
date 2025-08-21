@@ -15,7 +15,7 @@ import { HireMe } from "../../components/Buttons/hireMe";
 
 const Home = () => {
   return (
-    <div className="flex flex-col-reverse lg:flex-row py-10 bg-black text-white min-h-[90vh] gap-5 overflow-hidden">
+    <div className="flex flex-col-reverse lg:flex-row py-10 bg-black text-white md:min-h-[90vh] gap-5 overflow-hidden">
       <div className="w-full px-2 lg:w-1/2 flex flex-col justify-center text-center items-center lg:items-start mb-10 lg:mb-0">
         <motion.div
           initial={{ y: -50, opacity: 0 }}
@@ -109,12 +109,12 @@ const Home = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: false, amount: 0.8 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+        transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
       >
         <motion.img
           src={Images.UserImages.home_Image}
           alt="User"
-          className="w-[80%] md:w-[70%] lg:w-full h-auto object-contain max-h-[85vh]"
+          className="w-[50%] md:w-[70%] lg:w-full h-auto object-contain max-h-[60vh]"
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: false, amount: 0.8 }}

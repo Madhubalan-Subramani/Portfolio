@@ -9,7 +9,7 @@ const About = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center gap-4 w-full text-white py-10 overflow-hidden px-1 md:px-2 min-h-[90vh]">
       <motion.div
-        className="w-full md:w-2/5 flex justify-center"
+        className="hidden md:flex w-full md:w-2/5 justify-center"
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 2.3, ease: "easeOut" }}
@@ -131,7 +131,7 @@ const About = () => {
             viewport={{ once: false, amount: 0.5 }}
           >
             {[
-              "Experience: 3 Years",
+              "Experience: 3+ Years",
               "Skills: React Js, Java Script, HTML5, CSS3, Type Script, Tailwind and Bootstrap",
               "Current Job: Swithin & Sherwin Pvt Ltd",
               "Education: BE - Mechanical Engineering",
