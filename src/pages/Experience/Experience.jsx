@@ -3,40 +3,49 @@ import TimelineCard from "../../components/TimelineCard";
 
 const experiences = [
   {
-    year: "2023 - Present",
+    year: "2025 Aug - Present",
+    role: "Software Engineer",
+    company: "Neumeric Technology Corp",
+    description:
+"Building front-end solutions with React.js and Tailwind CSS, including the BEL Traceability application."
+  },
+  {
+    year: "2023 Sep - 2025 Aug",
     role: "UI UX Developer",
     company: "Swithin & Sherwin Pvt Ltd",
     description:
-      "I developed responsive web applications using React.js, creating 60+ reusable screens with optimized architecture. I also built a real-time clothing personalization feature that boosted user conversions by 45%, delivering intuitive and engaging user experiences."  },
+"Built responsive React.js web apps with 60+ reusable screens and a real-time clothing personalization feature."
+  },
   {
-    year: "2022 - 2023",
+    year: "2022 Jul - 2023 Jul",
     role: "Software Developer",
-    company: "DocEngage Pvt Ltd",
-    description: "I upgraded and maintained UI for healthcare modules using React.js, ensuring responsive design and consistent user experience. I implemented key usability features that improved task efficiency by 30% and resolved 1,000+ frontend issues, enhancing system stability."
+    company: "DocEngage Informative Pvt Ltd",
+    description:
+"Upgraded and maintained healthcare module UIs in React.js, ensuring responsiveness and resolving 1,000+ frontend issues to improve system stability."
   },
 ];
 
 const education = [
   {
-    year: "2018 - 2022",
+    year: "2018 Jun - 2022 Jun",
     role: "ENGINEERING DEGREE",
     company: "ANNA UNIVERSITY",
     description:
       "Earned a B.E. in Mechanical Engineering from Bannari Amman Institute of Technology with an 8.4 CGPA, showcasing strong analytical skills and a passion for innovation.",
   },
   {
-    year: "2016 - 2018",
+    year: "2016 Jun - 2018 Mar",
     role: "HIGHER SECONDARY SCHOOL",
     company: "STATE BOARD",
     description:
-      "Completed 11th and 12th in the Bio-Maths stream at Shri Vidhya Bharathi Metric Hr. Sec. School with 73.33%.",
+      "Completed 11th and 12th std in the Bio-Maths stream at Shri Vidhya Bharathi Metric Hr. Sec. School with 73.33%.",
   },
   {
-    year: "2015 - 2016",
+    year: "2015 Jun - 2016 Mar",
     role: "SECONDARY SCHOOL",
     company: "STATE BOARD",
     description:
-      "Scored 92% in 10th from Golden Spark Metric Hr. Sec. School, showcasing strong academic performance and dedication to excellence.",
+      "Scored 92% in 10th std from Golden Spark Metric Hr. Sec. School, showcasing strong academic performance and dedication to excellence.",
   },
 ];
 

@@ -15,6 +15,7 @@ const skills = [
   { name: "Firebase", logo: Images.SkillsImages.firebase_logo, percent: 70 },
   { name: "Figma", logo: Images.SkillsImages.figma_logo, percent: 50 },
   { name: "MySQL", logo: Images.SkillsImages.mysql_logo, percent: 50 },
+  { name: "GitHub", logo: Images.SkillsImages.github_logo, percent: 85 },
 ];
 
 const containerVariants = {

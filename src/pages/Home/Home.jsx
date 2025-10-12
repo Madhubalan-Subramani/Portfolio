@@ -45,7 +45,7 @@ const Home = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <p>
-            Front-End Developer with 3 years of experience building scalable web
+            Front-End Developer with 3+ years of experience building scalable web
             applications using React.js. Skilled at transforming Figma designs
             into responsive, reusable components with a focus on clean code,
             performance optimization, and RESTful API integration.

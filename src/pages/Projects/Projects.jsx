@@ -4,6 +4,22 @@ import ProjectCard from "../../components/ProjectCard";
 
 const projectData = [
   {
+    image: Images.ProjectImages.Bel_project,
+    type: "Web Application",
+    description:
+      "Worked on the BEL Traceability application, designing and developing multiple UI screens and implementing seamless API integrations for efficient data flow.",
+    tech: [
+      Images.SkillsImages.react_logo,
+      Images.SkillsImages.tailwind_logo,
+      Images.SkillsImages.js_logo,
+      Images.SkillsImages.html_logo,
+      Images.SkillsImages.css_logo,
+      Images.SkillsImages.mysql_logo,
+      Images.SoftwareImages.vsCode_logo,
+    ],
+    link: null,
+  },
+  {
     image: Images.ProjectImages.farmtracker_project,
     type: "Web Application",
     description:

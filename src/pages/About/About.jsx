@@ -132,8 +132,8 @@ const About = () => {
           >
             {[
               "Experience: 3+ Years",
-              "Skills: React Js, Java Script, HTML5, CSS3, Type Script, Tailwind and Bootstrap",
-              "Current Job: Swithin & Sherwin Pvt Ltd",
+              "Skills: React Js, Java Script, HTML5, CSS3, Type Script, Tailwind, Bootstrap and Figma.",
+              "Current Job: Neumeric Technology",
               "Education: BE - Mechanical Engineering",
             ].map((text, i) => (
               <motion.p

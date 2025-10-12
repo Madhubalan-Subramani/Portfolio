@@ -6,7 +6,7 @@ const ProjectCard = ({ project, idx }) => {
   return (
     <motion.div
       key={idx}
-      className="relative rounded-md p-5 bg-[#1f1f1f] flex flex-col justify-between w-[260px] md:w-[280px] lg:w-[300px] min-h-[400px] md:min-h-[440px] cursor-pointer
+      className="relative rounded-md p-5 bg-[#1f1f1f] flex flex-col justify-between w-[260px] md:w-[280px] lg:w-[300px] min-h-[400px] md:min-h-[440px]
     border border-[#3a3a3a]
      hover:border-[#8749f2] transition-shadow duration-700"
       initial={{
