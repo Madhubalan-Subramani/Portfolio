@@ -7,21 +7,21 @@ const experiences = [
     role: "Software Engineer",
     company: "Neumeric Technology Corp",
     description:
-"Building front-end solutions with React.js and Tailwind CSS, including the BEL Traceability application."
+      "Working on the BEL Traceability Application, building responsive UI screens using React.js, Tailwind CSS, Redux, and Hooks, with performance optimization for data-heavy workflows.",
   },
   {
     year: "2023 Sep - 2025 Aug",
     role: "UI UX Developer",
     company: "Swithin & Sherwin Pvt Ltd",
     description:
-"Built responsive React.js web apps with 60+ reusable screens and a real-time clothing personalization feature."
+      "Built responsive React.js web apps with 60+ reusable screens and a real-time clothing personalization feature.",
   },
   {
     year: "2022 Jul - 2023 Jul",
     role: "Software Developer",
     company: "DocEngage Informative Pvt Ltd",
     description:
-"Upgraded and maintained healthcare module UIs in React.js, ensuring responsiveness and resolving 1,000+ frontend issues to improve system stability."
+      "Upgraded and maintained healthcare module UIs in React.js, ensuring responsiveness and resolving 1,000+ frontend issues to improve system stability.",
   },
 ];
 
