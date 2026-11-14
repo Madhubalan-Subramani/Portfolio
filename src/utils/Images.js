@@ -2,7 +2,7 @@ const base = import.meta.env.BASE_URL;
 
 const UserImages = {
   home_Image: `${base}assets/home_logo.png`,
-  about_Image: `${base}assets/about_logo.png`,
+  about_Image: `${base}assets/about_logo.jpg?v=3`,
 };
 
 const SkillsImages = {
