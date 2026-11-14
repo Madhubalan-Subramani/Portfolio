@@ -8,7 +8,7 @@ import Skills from "./Skills/Skills";
 const HomePage = () => {
   return (
     <>
-      <div className="px-[10vw] bg-black">
+      <div className="px-4 sm:px-8 md:px-[10vw] bg-black">
         <section id="home">
           <Home />
         </section>

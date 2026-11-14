@@ -1,7 +1,7 @@
 import CommonButton from "../Buttons/CommonButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import { scroller } from "react-scroll";
 import { useEffect, useState } from "react";
@@ -13,7 +13,7 @@ const Navbar = () => {
     scroller.scrollTo("home", {
       duration: 0,
       smooth: false,
-      offset: -60,
+      offset: -70,
     });
   }, []);
 
@@ -23,6 +23,11 @@ const Navbar = () => {
     { link: "skills", name: "Skills" },
     { link: "experience", name: "Experience" },
     { link: "projects", name: "Projects" },
+  ];
+
+  const mobileNavItems = [
+    ...navItems,
+    { link: "contact", name: "Contact" },
   ];
 
   const handleToggleMenu = () => setIsMobileMenuOpen((prev) => !prev);
@@ -68,13 +73,13 @@ const Navbar = () => {
                     to={item.link}
                     smooth={true}
                     duration={500}
-                    offset={-60}
+                    offset={-70}
                     spy={true}
                     activeClass="active-nav"
-                    className="relative group text-white hover:text-[#7c3aed] cursor-pointer font-medium transition-all duration-300"
+                    className="relative group text-gray-300 hover:text-white cursor-pointer font-medium transition-colors duration-300 py-1"
                   >
                     {item.name}
-                    <span className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 h-[3px] bg-[#7c3aed] rounded-full after:transition-all duration-300 w-0 group-hover:w-[40px] group-[.active-nav]:w-[40px]"></span>
+                    <span className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 h-[3px] rounded-full transition-all duration-300 w-0 group-hover:w-[16px] group-hover:bg-violet-400/50 group-[.active-nav]:w-[34px] group-[.active-nav]:bg-[#8749f2] group-[.active-nav]:shadow-[0_0_8px_rgba(135,73,242,0.8)]"></span>
                   </ScrollLink>
                 </motion.div>
               ))}
@@ -92,7 +97,7 @@ const Navbar = () => {
               to="contact"
               smooth={true}
               duration={500}
-              offset={-60}
+              offset={-70}
               spy={true}
             >
               <CommonButton name="Contact" />
@@ -124,9 +129,9 @@ const Navbar = () => {
           closed: { y: -20, opacity: 0, pointerEvents: "none" },
         }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="md:hiddenbg-white/10 backdrop-blur-xl shadow px-6 pb-4 pt-2 space-y-4 flex flex-col justify-center items-center z-50 absolute top-16 left-0 w-full"
+        className="md:hidden bg-white/10 backdrop-blur-xl shadow px-6 pb-4 pt-2 space-y-4 flex flex-col justify-center items-center z-50 absolute top-16 left-0 w-full"
       >
-        {navItems.map((item, index) => (
+        {mobileNavItems.map((item, index) => (
           <motion.div
             key={item.name}
             initial={false}
@@ -144,14 +149,14 @@ const Navbar = () => {
               to={item.link}
               smooth={true}
               duration={500}
-              offset={-60}
+              offset={-70}
               spy={true}
               activeClass="active-nav"
               onClick={handleCloseMenu}
-              className="relative group text-white text-sm font-medium hover:text-[#7c3aed] cursor-pointer transition-all duration-300"
+              className="relative group text-gray-300 text-sm font-medium hover:text-white cursor-pointer transition-colors duration-300 py-1"
             >
               {item.name}
-              <span className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 h-[2px] bg-[#7c3aed] rounded-full transition-all duration-300 w-0 group-hover:w-[30px] group-[.active-nav]:w-[30px]"></span>
+              <span className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 h-[2px] rounded-full transition-all duration-300 w-0 group-hover:w-[14px] group-hover:bg-violet-400/50 group-[.active-nav]:w-[28px] group-[.active-nav]:bg-[#8749f2] group-[.active-nav]:shadow-[0_0_8px_rgba(135,73,242,0.8)]"></span>
             </ScrollLink>
           </motion.div>
         ))}

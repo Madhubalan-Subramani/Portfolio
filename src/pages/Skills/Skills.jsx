@@ -9,39 +9,44 @@ const skills = [
   { name: "JavaScript", logo: Images.SkillsImages.js_logo, percent: 95 },
   { name: "TypeScript", logo: Images.SkillsImages.ts_logo, percent: 75 },
   { name: "React.js", logo: Images.SkillsImages.react_logo, percent: 85 },
+  { name: "Node.js", logo: Images.SkillsImages.node_logo, percent: 80 },
+  { name: "Python", logo: Images.SkillsImages.python_logo, percent: 75 },
   { name: "Tailwind", logo: Images.SkillsImages.tailwind_logo, percent: 90 },
   { name: "Bootstrap", logo: Images.SkillsImages.bootstrap_logo, percent: 85 },
   { name: "Flutter", logo: Images.SkillsImages.flutter_logo, percent: 60 },
   { name: "Firebase", logo: Images.SkillsImages.firebase_logo, percent: 70 },
+  { name: "MySQL", logo: Images.SkillsImages.mysql_logo, percent: 70 },
   { name: "Figma", logo: Images.SkillsImages.figma_logo, percent: 50 },
-  { name: "MySQL", logo: Images.SkillsImages.mysql_logo, percent: 50 },
   { name: "GitHub", logo: Images.SkillsImages.github_logo, percent: 85 },
 ];
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.25,
-    },
-  },
-};
-
 const Skills = () => {
   const [activeIndex, setActiveIndex] = useState(null);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth < 768 : false
+  );
+  const [isTouchDevice, setIsTouchDevice] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(pointer: coarse)").matches
+      : false
+  );
+  const [showAllMobile, setShowAllMobile] = useState(false);
 
   useEffect(() => {
-    const checkTouch = () => {
+    const handleResize = () => {
       setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches);
+      setIsMobile(window.innerWidth < 768);
     };
-    checkTouch();
-    window.addEventListener("resize", checkTouch);
-    return () => window.removeEventListener("resize", checkTouch);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const visibleSkills =
+    isMobile && !showAllMobile ? skills.slice(0, 6) : skills;
+
   return (
-    <div className="text-center text-white flex flex-col items-center justify-center min-h-screen pb-10">
+    <div className="text-center text-white flex flex-col items-center justify-start md:justify-center py-8 md:py-0 md:min-h-screen">
       <div className="flex flex-col items-center">
         <motion.div
           initial={{ x: 50, opacity: 0 }}
@@ -85,24 +90,56 @@ const Skills = () => {
         </motion.p>
       </div>
 
-      <motion.div
-        className="flex flex-wrap justify-center gap-5 mt-5 md:mt-10"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
-      >
-        {skills.map((skill, index) => (
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:flex md:flex-wrap md:justify-center gap-2.5 sm:gap-4 md:gap-5 mt-5 md:mt-10 justify-items-center w-full max-w-4xl mx-auto">
+        {visibleSkills.map((skill, index) => (
           <SkillCard
-            key={index}
+            key={skill.name}
             skill={skill}
+            idx={index}
+            isNewlyExpanded={isMobile && showAllMobile && index >= 6}
             isActive={activeIndex === index}
             onActivate={() => setActiveIndex(index)}
             onDeactivate={() => setActiveIndex(null)}
             isTouchDevice={isTouchDevice}
           />
         ))}
-      </motion.div>
+      </div>
+
+      {/* Mobile-only Show More / Show Less after 2 rows (6 cards) */}
+      {isMobile && skills.length > 6 && (
+        <motion.div
+          className="mt-6 flex justify-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <button
+            onClick={() => setShowAllMobile((prev) => !prev)}
+            className="flex items-center gap-2 bg-[#1b1b1b] hover:bg-[#252525] text-[#8749f2] hover:text-white border border-[#8749f2]/60 hover:border-[#8749f2] px-5 py-2 rounded-full text-xs font-semibold shadow-md transition-all duration-200 cursor-pointer"
+          >
+            <span>
+              {showAllMobile
+                ? "Show Less"
+                : `Show More (${skills.length - 6} more)`}
+            </span>
+            <svg
+              className={`w-3.5 h-3.5 transform transition-transform duration-200 ${
+                showAllMobile ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+        </motion.div>
+      )}
     </div>
   );
 };

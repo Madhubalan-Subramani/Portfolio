@@ -4,10 +4,10 @@ import TimelineCard from "../../components/TimelineCard";
 const experiences = [
   {
     year: "2025 Aug - Present",
-    role: "Software Engineer",
+    role: "Software Developer",
     company: "Neumeric Technology Corp",
     description:
-      "Working on the BEL Traceability Application, building responsive UI screens using React.js, Tailwind CSS, Redux, and Hooks, with performance optimization for data-heavy workflows.",
+      "Architected enterprise React.js & TypeScript web apps—including CryptoTrace blockchain UTXO lineage visualization, Smart City ITMS real-time telemetry dashboards (50+ endpoints, SSE), and the BEL Traceability machine-handshake interface with centralized Redux.",
   },
   {
     year: "2023 Sep - 2025 Aug",
@@ -17,11 +17,11 @@ const experiences = [
       "Built responsive React.js web apps with 60+ reusable screens and a real-time clothing personalization feature.",
   },
   {
-    year: "2022 Jul - 2023 Jul",
+    year: "2022 Jul - 2023 Sep",
     role: "Software Developer",
     company: "DocEngage Informative Pvt Ltd",
     description:
-      "Upgraded and maintained healthcare module UIs in React.js, ensuring responsiveness and resolving 1,000+ frontend issues to improve system stability.",
+      "Modernized 7 core healthcare modules using React.js and Redux, shipping 5+ usability features and resolving 300+ production tickets to boost operational efficiency and system stability.",
   },
 ];
 
@@ -77,8 +77,8 @@ const Experience = () => {
         </motion.div>
       </motion.div>
 
-      <div className="mt-10 flex flex-col lg:flex-row gap-8">
-        <div className="flex flex-col gap-4 w-full lg:w-1/2 items-end text-start">
+      <div className="mt-10 flex flex-col lg:flex-row gap-8 w-full">
+        <div className="flex flex-col gap-4 w-full lg:w-1/2 pl-3 md:pl-0 items-end text-start">
           {experiences.map((item, index) => (
             <TimelineCard
               key={index}
@@ -88,7 +88,7 @@ const Experience = () => {
           ))}
         </div>
 
-        <div className="flex flex-col gap-4 w-full lg:w-1/2 items-end text-start">
+        <div className="flex flex-col gap-4 w-full lg:w-1/2 pl-3 md:pl-0 items-end text-start">
           {education.map((item, index) => (
             <TimelineCard
               key={index}

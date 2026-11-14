@@ -23,7 +23,9 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // Allow PascalCase vars (components) and motion (used as JSX member expression)
+      'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]|^motion$', args: 'none' }],
+      'react-hooks/exhaustive-deps': 'warn',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

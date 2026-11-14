@@ -59,11 +59,12 @@ const About = () => {
           viewport={{ once: false, amount: 0.9 }}
         >
           <p>
-            I’m Madhubalan, a Front-End Developer with 3 years of experience
-            building responsive web apps using React.js. I specialize in
-            transforming Figma designs into interactive, reusable UI components
-            with clean code. I focus on creating scalable, high-performance
-            interfaces that align with user needs and business goals.
+            I’m Madhubalan, a Full-Stack Developer with 4 years of experience
+            building scalable web applications. I specialize in architecting
+            end-to-end solutions—bridging intuitive React.js user interfaces
+            with reliable backend services using Node.js, Python, RESTful APIs,
+            and databases. I focus on creating secure, high-performance web systems
+            that align with user needs and business goals.
           </p>
         </motion.div>
 
@@ -97,7 +98,7 @@ const About = () => {
               "Name: Madhubalan Subramani",
               "Phone: +91 8946059125",
               "Email: stmmadhubalan@gmail.com",
-              "Location: Salem, TamilNadu",
+              "Location: Bengaluru, India",
             ].map((text, i) => (
               <motion.p
                 key={i}
@@ -131,8 +132,8 @@ const About = () => {
             viewport={{ once: false, amount: 0.5 }}
           >
             {[
-              "Experience: 3+ Years",
-              "Skills: React Js, Java Script, HTML5, CSS3, Type Script, Tailwind, Bootstrap and Figma.",
+              "Experience: 4 Years",
+              "Skills: React.js, Node.js, Python, JavaScript, TypeScript, Tailwind, and MySQL.",
               "Current Job: Neumeric Technology",
               "Education: BE - Mechanical Engineering",
             ].map((text, i) => (

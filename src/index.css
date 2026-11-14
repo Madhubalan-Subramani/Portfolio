@@ -10,8 +10,8 @@ html {
 }
 
 .active-nav {
-  color: #7c3aed;
-  font-weight: 700;
+  color: #9d65f8 !important;
+  font-weight: 600;
 }
 
 .CircularProgressbar-text {

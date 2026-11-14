@@ -1,13 +1,16 @@
+import { useState, useEffect } from "react";
 import Images from "../../utils/Images";
 import { motion } from "framer-motion";
 import ProjectCard from "../../components/ProjectCard";
 
 const projectData = [
+  // 1. Neumeric - BEL Traceability
   {
+    title: "BEL Traceability",
     image: Images.ProjectImages.Bel_project,
     type: "Web Application",
     description:
-      "Worked on the BEL Traceability application, designing and developing multiple UI screens and implementing seamless API integrations for efficient data flow.",
+      "Engineered real-time EVM machine-handshake workflows, 25+ schema-validated forms (React Hook Form, Yup), and centralized Redux state management for high-volume tracking.",
     tech: [
       Images.SkillsImages.react_logo,
       Images.SkillsImages.tailwind_logo,
@@ -19,58 +22,102 @@ const projectData = [
     ],
     link: null,
   },
+  // 2. Neumeric - CryptoTrace
   {
-    image: Images.ProjectImages.farmtracker_project,
+    title: "CryptoTrace",
+    image: Images.ProjectImages.Bel_project,
     type: "Web Application",
     description:
-      "Farm Tracker helps farmers track and manage their farm activities efficiently with real-time insights, making it easy to record, view, and filter past cultivation work.",
+      "Architected blockchain forensics front-end system with interactive Cytoscape.js graphs, multi-network address lookups, directional filtering, and UTXO transaction lineage.",
     tech: [
       Images.SkillsImages.react_logo,
+      Images.SkillsImages.ts_logo,
+      Images.SkillsImages.tailwind_logo,
+      Images.SkillsImages.js_logo,
       Images.SkillsImages.html_logo,
       Images.SkillsImages.css_logo,
-      Images.SkillsImages.js_logo,
-      Images.SkillsImages.tailwind_logo,
-      Images.SkillsImages.firebase_logo,
       Images.SoftwareImages.vsCode_logo,
     ],
-    link: "https://github.com/Madhubalan-Subramani/Farm-Tracker",
+    link: null,
   },
+  // 3. Neumeric - Smart City ITMS
   {
+    title: "Smart City ITMS",
+    image: Images.ProjectImages.Bel_project,
+    type: "Web Application",
+    description:
+      "Spearheaded traffic violation & GIS analytics platform across 50+ REST endpoints with RS256 JWT/RBAC guards, Server-Sent Events (SSE) telemetry, and virtualized data grids.",
+    tech: [
+      Images.SkillsImages.react_logo,
+      Images.SkillsImages.ts_logo,
+      Images.SkillsImages.tailwind_logo,
+      Images.SkillsImages.js_logo,
+      Images.SkillsImages.html_logo,
+      Images.SkillsImages.css_logo,
+      Images.SoftwareImages.vsCode_logo,
+    ],
+    link: null,
+  },
+  // 4. Swithin & Sherwin
+  {
+    title: "Sherwin Custom Apparel",
+    image: Images.ProjectImages.sherwin_project,
+    type: "Web Application",
+    description:
+      "Designed and built 30+ responsive React.js storefront views featuring an interactive real-time clothing personalization studio backed by Redux state management.",
+    tech: [
+      Images.SkillsImages.react_logo,
+      Images.SkillsImages.tailwind_logo,
+      Images.SkillsImages.js_logo,
+      Images.SkillsImages.html_logo,
+      Images.SkillsImages.css_logo,
+      Images.SoftwareImages.vsCode_logo,
+    ],
+    link: null,
+  },
+  // 5. DocEngage
+  {
+    title: "DocEngage Healthcare",
     image: Images.ProjectImages.docengage_project,
     type: "Web Application",
     description:
-      "Implemented UI/UX designs for seven different modules in DocEngage, ensuring user-friendly and added new functionality.",
+      "Overhauled UI across 7 core healthcare modules, delivering reusable component libraries, search, filtering, and pagination workflows for over 1,000 active users.",
     tech: [
       Images.SkillsImages.react_logo,
+      Images.SkillsImages.bootstrap_logo,
+      Images.SkillsImages.js_logo,
       Images.SkillsImages.html_logo,
       Images.SkillsImages.css_logo,
-      Images.SkillsImages.js_logo,
-      Images.SkillsImages.bootstrap_logo,
       Images.SkillsImages.mysql_logo,
       Images.SoftwareImages.vsCode_logo,
     ],
     link: "https://www.docengage.in/",
   },
+  // 6. Personal - Farm Tracker
   {
-    image: Images.ProjectImages.sherwin_project,
+    title: "Farm Tracker",
+    image: Images.ProjectImages.farmtracker_project,
     type: "Web Application",
     description:
-      "Designed and implemented UI/UX layouts screens for the Sherwin e-commerce app, including a new customization feature for personalized shopping.",
+      "Helps farmers track and manage cultivation activities with real-time insights, activity logging, filtering past farm records, and Firebase cloud persistence.",
     tech: [
       Images.SkillsImages.react_logo,
+      Images.SkillsImages.firebase_logo,
+      Images.SkillsImages.tailwind_logo,
+      Images.SkillsImages.js_logo,
       Images.SkillsImages.html_logo,
       Images.SkillsImages.css_logo,
-      Images.SkillsImages.js_logo,
-      Images.SkillsImages.tailwind_logo,
       Images.SoftwareImages.vsCode_logo,
     ],
-    link: null,
+    link: "https://github.com/Madhubalan-Subramani/Farm-Tracker",
   },
+  // 7. Personal - Login Application
   {
+    title: "Flutter Login App",
     image: Images.ProjectImages.login_project,
     type: "Mobile Application",
     description:
-      "Developed a login application with authentication, ensuring secure user access and seamless experience.",
+      "Developed a cross-platform mobile login application with Firebase authentication, ensuring secure user access, clean validation, and seamless UX across devices.",
     tech: [
       Images.SkillsImages.flutter_logo,
       Images.SkillsImages.dart_logo,
@@ -79,21 +126,24 @@ const projectData = [
     ],
     link: "https://github.com/Madhubalan-Subramani/Flutter-Login-Appliction",
   },
-  {
-    image: Images.ProjectImages.calculator_project,
-    type: "Mobile Application",
-    description:
-      "Designed and developed a visually appealing and fully responsive basic calculator application, ensuring smooth and efficient functionality across all devices.",
-    tech: [
-      Images.SkillsImages.flutter_logo,
-      Images.SkillsImages.dart_logo,
-      Images.SoftwareImages.android_studio_logo,
-    ],
-    link: "https://github.com/Madhubalan-Subramani/Calculator",
-  },
 ];
 
 const Projects = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [showAllMobile, setShowAllMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const displayedProjects =
+    isMobile && !showAllMobile ? projectData.slice(0, 4) : projectData;
+
   return (
     <div className="text-center text-white flex flex-col items-center justify-center min-h-screen py-8">
       <div className="flex flex-col items-center justify-center">
@@ -110,7 +160,7 @@ const Projects = () => {
             viewport={{ once: false, amount: 0.3 }}
             className="text-2xl md:text-3xl font-bold"
           >
-            <span className="text-[#8749f2]">Pro</span>ject
+            <span className="text-[#8749f2]">Pro</span>jects
           </motion.h2>
           <motion.div
             initial={{ width: 0, opacity: 0 }}
@@ -134,11 +184,31 @@ const Projects = () => {
         </motion.p>
       </div>
 
-      <div className="flex flex-wrap flex-row gap-4 lg:gap-8 justify-center items-center mt-5 md:mt-10 mb-5">
-        {projectData.map((project, idx) => (
-          <ProjectCard project={project} id={idx} key={idx} />
+      {/* Responsive grid: 4 in a row on desktop (lg:grid-cols-4), 2 in a row on mobile (grid-cols-2) */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 w-full max-w-7xl mx-auto mt-6 md:mt-10">
+        {displayedProjects.map((project, idx) => (
+          <ProjectCard project={project} idx={idx} key={project.title} />
         ))}
       </div>
+
+      {/* Mobile-only Show More / Show Less Button */}
+      {isMobile && projectData.length > 4 && (
+        <motion.div
+          className="mt-6 flex justify-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <button
+            onClick={() => setShowAllMobile((prev) => !prev)}
+            className="flex items-center gap-2 bg-[#1b1b1b] hover:bg-[#252525] text-[#8749f2] hover:text-white border border-[#8749f2]/60 hover:border-[#8749f2] px-5 py-2 rounded-full text-xs font-semibold shadow-md transition-all duration-200 cursor-pointer"
+          >
+            {showAllMobile
+              ? "Show Less"
+              : `Show More (${projectData.length - 4} more)`}
+          </button>
+        </motion.div>
+      )}
     </div>
   );
 };

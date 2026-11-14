@@ -30,34 +30,24 @@ const ContactItem = ({ icon, children, link }) => {
 };
 
 const socialLinks = [
-  {
-    icon: faLinkedin,
-    url: "https://www.linkedin.com/in/stmmadhubalan",
-  },
-  {
-    icon: faGithub,
-    url: "https://github.com/Madhubalan-Subramani",
-  },
-  {
-    icon: faInstagram,
-    url: "https://www.instagram.com/_n_o_b_it_a_/",
-  },
+  { icon: faLinkedin, url: "https://www.linkedin.com/in/stmmadhubalan" },
+  { icon: faGithub, url: "https://github.com/Madhubalan-Subramani" },
+  { icon: faInstagram, url: "https://www.instagram.com/_n_o_b_it_a_/" },
 ];
 
+// Social icons smooth scale & lift
 const SocialIconList = () => (
   <div className="mt-4 flex justify-center gap-4 text-white text-xl">
     {socialLinks.map(({ icon, url }, i) => (
       <motion.div
         key={i}
-        initial={{ opacity: 0, scale: 0.7, y: 30 }}
+        initial={{ opacity: 0, scale: 0.7, y: 15 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.8 }}
+        viewport={{ once: false, amount: 0.3 }}
         transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 15,
-          delay: i * 0.4,
-          duration: 2,
+          duration: 0.6,
+          ease: [0.16, 1, 0.3, 1],
+          delay: 0.35 + i * 0.1,
         }}
         style={{ cursor: "pointer" }}
         onClick={() => window.open(url, "_blank")}
@@ -68,37 +58,36 @@ const SocialIconList = () => (
   </div>
 );
 
+// Butter-smooth horizontal cascade for details
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.25,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -25 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
 export default function ContactDetails() {
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -40 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 10,
-        damping: 5,
-        mass: 3,
-      },
-    },
-  };
-
   return (
     <motion.div
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.2 }}
       className="text-white max-w-md mx-auto"
     >
       <motion.h2
@@ -108,33 +97,29 @@ export default function ContactDetails() {
         Get in Touch
       </motion.h2>
 
-      <motion.p variants={itemVariants} className="text-sm mb-8">
-        Got a project or an idea in mind ? Let’s talk ! I’m here to bring your
+      <motion.p variants={itemVariants} className="text-sm mb-8 text-gray-300">
+        Got a project or an idea in mind ? Let's talk ! I'm here to bring your
         vision to life.
       </motion.p>
 
-      <motion.div
-        variants={containerVariants}
-        className="flex flex-col gap-5 mb-6"
-      >
+      <motion.div variants={containerVariants} className="flex flex-col gap-4 mb-6">
         <motion.div variants={itemVariants}>
           <ContactItem
             icon={faEnvelope}
             link="https://mail.google.com/mail/?view=cm&fs=1&to=stmmadhubalan@gmail.com&su=Your%20Subject&body=Message%20goes%20here"
-            inline
           >
             stmmadhubalan@gmail.com
           </ContactItem>
         </motion.div>
+
         <motion.div variants={itemVariants}>
-          <ContactItem icon={faPhone} link="tel:+918946059125" inline>
+          <ContactItem icon={faPhone} link="tel:+918946059125">
             +91 8946059125
           </ContactItem>
         </motion.div>
+
         <motion.div variants={itemVariants}>
-          <ContactItem icon={faLocationArrow} inline>
-            Salem, Tamil Nadu
-          </ContactItem>
+          <ContactItem icon={faLocationArrow}>Bengaluru, India</ContactItem>
         </motion.div>
       </motion.div>
 

@@ -18,7 +18,9 @@ const SkillsImages = {
   firebase_logo: `${base}assets/fire-base-logo.png`,
   figma_logo: `${base}assets/figma-logo.png`,
   dart_logo: `${base}assets/dart-logo.png`,
-  github_logo: `${base}assets/GitHub-Logo.png`,
+  github_logo: `${base}assets/github-logo.png`,
+  python_logo: `${base}assets/python-logo.png`,
+  node_logo: `${base}assets/nodejs-logo.png`,
 };
 
 const SoftwareImages = {

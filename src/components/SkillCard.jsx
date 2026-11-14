@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 60, rotateY: -10, scale: 0.9 },
-  show: {
-    opacity: 1,
-    y: 0,
-    rotateY: 0,
-    scale: 1,
-    transition: { type: "spring", stiffness: 50, damping: 16, duration: 1.2 },
+  hidden: {
+    opacity: 0,
+    y: 30,
+    scale: 0.85,
   },
-};
-
-const contentVariants = {
-  hidden: { opacity: 0, y: 25 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.4, duration: 0.6, ease: "easeOut" },
+  show: (custom) => {
+    const { idx = 0, isNewlyExpanded = false } =
+      typeof custom === "number" ? { idx: custom } : custom || {};
+    const delayIndex = isNewlyExpanded ? Math.max(0, idx - 6) : idx;
+    return {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.85,
+        delay: (delayIndex % 6) * 0.07,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    };
   },
 };
 
@@ -36,10 +39,10 @@ const AnimatedProgressbar = ({ percent, isVisible }) => {
     const updateSize = () => {
       const width = window.innerWidth;
       if (width < 480) {
-        setTextSize("12px");
-        setStrokeWidth(8);
-      } else if (width < 768) {
         setTextSize("16px");
+        setStrokeWidth(9);
+      } else if (width < 768) {
+        setTextSize("18px");
         setStrokeWidth(9);
       } else {
         setTextSize("20px");
@@ -61,6 +64,7 @@ const AnimatedProgressbar = ({ percent, isVisible }) => {
       unsubscribe();
       window.removeEventListener("resize", updateSize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isVisible, percent]);
 
   return (
@@ -85,6 +89,8 @@ const SkillCard = ({
   onActivate,
   onDeactivate,
   isTouchDevice,
+  idx = 0,
+  isNewlyExpanded = false,
 }) => {
   const [hovered, setHovered] = useState(false);
 
@@ -98,40 +104,43 @@ const SkillCard = ({
 
   return (
     <motion.div
-      className="w-[100px] h-[110px] md:w-[130px] md:h-[140px] group rounded-md flex flex-col justify-evenly items-center text-center p-4 border border-[#8749f2] bg-[#1c1c1c] shadow-xl transition duration-300"
+      className="w-full max-w-[96px] h-[105px] sm:w-[105px] sm:h-[115px] md:w-[115px] md:h-[125px] group rounded-md flex flex-col justify-evenly items-center text-center p-2 sm:p-2.5 md:p-3 border border-[#8749f2] bg-[#1c1c1c] shadow-xl transition duration-300"
+      custom={{ idx, isNewlyExpanded }}
       variants={cardVariants}
+      initial="hidden"
+      whileInView={isNewlyExpanded ? undefined : "show"}
+      animate={isNewlyExpanded ? "show" : undefined}
+      viewport={isNewlyExpanded ? undefined : { once: false, amount: 0.05 }}
       whileHover={
         !isTouchDevice && {
           scale: 1.08,
           rotateY: 5,
-          transition: { type: "spring", stiffness: 300, damping: 15 },
+          transition: { duration: 0.18, ease: "easeOut" },
         }
       }
       onHoverStart={() => !isTouchDevice && setHovered(true)}
       onHoverEnd={() => !isTouchDevice && setHovered(false)}
       onClick={handleClick}
     >
-      <motion.img
+      <img
         src={skill.logo}
         alt={skill.name}
-        className={`h-[50%] object-contain mb-2 transition duration-300 ${
+        className={`h-[45%] max-h-[38px] md:max-h-[48px] object-contain mb-1 transition duration-300 ${
           showProgress ? "hidden" : "block"
         }`}
-        variants={contentVariants}
       />
 
-      <motion.div
-        className={`w-[50px] h-[50px] md:w-[70px] md:h-[70px] ${
+      <div
+        className={`w-[42px] h-[42px] md:w-[54px] md:h-[54px] ${
           showProgress ? "block" : "hidden"
         }`}
-        variants={contentVariants}
       >
         <AnimatedProgressbar percent={skill.percent} isVisible={showProgress} />
-      </motion.div>
+      </div>
 
-      <motion.p className="text-xs md:text-sm mt-2" variants={contentVariants}>
+      <p className="text-[11px] sm:text-xs md:text-sm font-medium mt-1 leading-tight line-clamp-1">
         {skill.name}
-      </motion.p>
+      </p>
     </motion.div>
   );
 };

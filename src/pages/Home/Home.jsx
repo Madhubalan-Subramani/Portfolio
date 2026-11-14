@@ -45,10 +45,11 @@ const Home = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <p>
-            Front-End Developer with 3+ years of experience building scalable web
-            applications using React.js. Skilled at transforming Figma designs
-            into responsive, reusable components with a focus on clean code,
-            performance optimization, and RESTful API integration.
+            Full-Stack Developer with 4 years of experience building scalable,
+            high-performance web applications using React.js, Node.js, and Python.
+            Skilled in engineering modern, responsive interfaces and integrating
+            robust backend architectures, RESTful APIs, and database solutions
+            with a focus on clean code and performance optimization.
           </p>
         </motion.div>
 

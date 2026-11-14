@@ -1,21 +1,18 @@
 import CommonButton from "./CommonButton";
 
-const withIcon = (WrappedComponent) => {
-  return function IconEnhancedButton({ icon, name, ...rest }) {
-    return (
-      <WrappedComponent
-        name={
-          <span className="flex items-center gap-2">
-            {icon}
-            {name}
-          </span>
-        }
-        {...rest}
-      />
-    );
-  };
+const CommonIconButton = ({ icon, name, onClick, type }) => {
+  return (
+    <CommonButton
+      name={
+        <span className="flex items-center gap-2">
+          {icon}
+          {name}
+        </span>
+      }
+      onClick={onClick}
+      type={type}
+    />
+  );
 };
-
-const CommonIconButton = withIcon(CommonButton);
 
 export default CommonIconButton;
