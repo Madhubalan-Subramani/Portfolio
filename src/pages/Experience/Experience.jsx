@@ -78,7 +78,7 @@ const Experience = () => {
       </motion.div>
 
       <div className="mt-10 flex flex-col lg:flex-row gap-8 w-full">
-        <div className="flex flex-col gap-4 w-full lg:w-1/2 pl-3 md:pl-0 items-end text-start">
+        <div className="flex flex-col gap-4 w-full lg:w-1/2 pl-0 items-end text-start">
           {experiences.map((item, index) => (
             <TimelineCard
               key={index}
@@ -88,7 +88,7 @@ const Experience = () => {
           ))}
         </div>
 
-        <div className="flex flex-col gap-4 w-full lg:w-1/2 pl-3 md:pl-0 items-end text-start">
+        <div className="flex flex-col gap-4 w-full lg:w-1/2 pl-0 items-end text-start">
           {education.map((item, index) => (
             <TimelineCard
               key={index}

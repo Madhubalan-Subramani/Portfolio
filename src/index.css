@@ -18,4 +18,14 @@ html {
   font-weight: bold !important;
 }
 
+/* Mobile-only 7-line clamp for project cards */
+@media (max-width: 639px) {
+  .line-clamp-mobile-7 {
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
 

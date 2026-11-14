@@ -57,24 +57,38 @@ const ProjectCard = ({ project, idx }) => {
           {project.title}
         </h3>
 
-        {/* Full Description - no line-clamp, all text visible */}
-        <p className="mt-2 text-[11px] sm:text-xs text-gray-300 text-start leading-relaxed">
+        {/* Description - clamped to 7 lines with ... on mobile, full on tablet/desktop */}
+        <p
+          className="mt-2 text-[11px] sm:text-xs text-gray-300 text-start leading-relaxed line-clamp-mobile-7"
+          title={project.description}
+        >
           {project.description}
         </p>
       </div>
 
       <div className="mt-3 pt-2.5 border-t border-white/5 flex flex-col items-start gap-2.5">
-        <div className="flex gap-1.5 flex-wrap bg-black/60 rounded-full px-2.5 py-1">
+        {/* Tech stack pill - max 5 icons on mobile with '...' indicator, all on desktop */}
+        <div className="flex gap-1.5 items-center flex-wrap bg-black/60 rounded-full px-2.5 py-1">
           {project.tech.map((logo, i) => (
             <motion.img
               key={i}
               src={logo}
               alt="tech icon"
-              className="w-3.5 h-3.5 sm:w-4 sm:h-4 object-contain"
+              className={`w-3.5 h-3.5 sm:w-4 sm:h-4 object-contain ${
+                i >= 5 ? "hidden sm:block" : "block"
+              }`}
               whileHover={{ rotate: 15, scale: 1.25 }}
               transition={{ duration: 0.15 }}
             />
           ))}
+          {project.tech.length > 5 && (
+            <span
+              className="text-[10px] text-gray-400 font-bold tracking-wider sm:hidden px-0.5 leading-none select-none"
+              title={`${project.tech.length - 5} more technologies`}
+            >
+              ...
+            </span>
+          )}
         </div>
 
         {project.link ? (
