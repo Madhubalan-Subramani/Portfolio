@@ -28,4 +28,93 @@ html {
   }
 }
 
+/* Cyber Spider Articulated Gait & Smooth Natural Movements */
+.spider-scuttling .spider-legs-a {
+  animation: spider-gait-a 0.22s infinite alternate ease-in-out;
+  transform-origin: 16px 16px;
+}
 
+.spider-scuttling .spider-legs-b {
+  animation: spider-gait-b 0.22s infinite alternate ease-in-out;
+  transform-origin: 16px 16px;
+}
+
+@keyframes spider-gait-a {
+  0% {
+    transform: rotate(-5deg) scale(0.97);
+  }
+  100% {
+    transform: rotate(5deg) scale(1.03);
+  }
+}
+
+@keyframes spider-gait-b {
+  0% {
+    transform: rotate(5deg) scale(1.03);
+  }
+  100% {
+    transform: rotate(-5deg) scale(0.97);
+  }
+}
+
+.spider-idle {
+  animation: spider-breathe 3.5s infinite ease-in-out;
+}
+
+@keyframes spider-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+
+
+/* Contact page — mobile animated gradient background */
+.contact-mobile-bg {
+  background: linear-gradient(
+    135deg,
+    #0a0a0a 0%,
+    #0d0618 20%,
+    #1a0a2e 40%,
+    #0f0524 60%,
+    #0a0a14 80%,
+    #0a0a0a 100%
+  );
+  background-size: 300% 300%;
+  animation: contact-gradient-shift 10s ease infinite;
+}
+
+.contact-mobile-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(135, 73, 242, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(99, 40, 200, 0.08) 0%, transparent 70%),
+    radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.contact-mobile-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(135, 73, 242, 0.015) 2px,
+      rgba(135, 73, 242, 0.015) 4px
+    );
+  pointer-events: none;
+}
+
+@keyframes contact-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

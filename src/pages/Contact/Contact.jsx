@@ -2,6 +2,7 @@ import Images from "../../utils/Images";
 import ContactForm from "./ContactForm";
 import ContactDetails from "./ContactDetails";
 import { motion } from "framer-motion";
+import ContactMobileBg from "../../components/ContactMobileBg";
 
 // Left card: Silky converging glide from the left (GPU transform & opacity only - 0 lag)
 const leftCardVariants = {
@@ -35,16 +36,26 @@ const rightCardVariants = {
 const Contact = () => {
   return (
     <div className="overflow-hidden">
+      {/* Desktop: original photo bg | Mobile: animated gradient */}
       <div
-        className="text-center text-white flex flex-col lg:items-center justify-end min-h-screen"
-        style={{
-          backgroundImage: `url(${Images.OtherImages.contact_bg})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "bottom center",
-        }}
+        className="relative text-center text-white flex flex-col lg:items-center justify-end min-h-screen"
       >
-        <div className="flex flex-col md:flex-row justify-center items-center gap-5 lg:gap-10 px-4 sm:px-8 md:px-5 py-10 w-full max-w-6xl mx-auto">
+        {/* Desktop bg image — hidden on small screens */}
+        <div
+          className="absolute inset-0 hidden md:block"
+          style={{
+            backgroundImage: `url(${Images.OtherImages.contact_bg})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "bottom center",
+          }}
+        />
+
+        {/* Mobile bg — interactive touch-reactive constellation canvas */}
+        <div className="absolute inset-0 md:hidden">
+          <ContactMobileBg />
+        </div>
+        <div className="relative z-10 flex flex-col md:flex-row justify-center items-center gap-5 lg:gap-10 px-4 sm:px-8 md:px-5 py-10 w-full max-w-6xl mx-auto">
           {/* Contact Details card - glides from left */}
           <motion.div
             className="w-full md:w-[45%] lg:w-[42%] bg-black/50 backdrop-blur-md p-5 md:p-8 rounded-lg border border-white/10 shadow-lg"
@@ -70,7 +81,7 @@ const Contact = () => {
           </motion.div>
         </div>
 
-        <footer className="h-[50px] text-center flex items-center justify-center text-xs md:text-sm bg-black text-white w-full px-3">
+        <footer className="relative z-10 h-[50px] text-center flex items-center justify-center text-xs md:text-sm bg-black text-white w-full px-3">
           © {new Date().getFullYear()} All Rights Reserved. Designed by Madhubalan
         </footer>
       </div>

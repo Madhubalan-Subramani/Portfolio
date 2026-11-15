@@ -12,6 +12,9 @@ import SocialIcon from "../../components/Buttons/SocialIcon";
 import { motion } from "framer-motion";
 import { resumeDownload } from "../../components/Buttons/ResumeDownload";
 import { HireMe } from "../../components/Buttons/hireMe";
+import CyberSpider from "../../components/CyberSpider";
+import HeroInteractiveTerminal from "../../components/HeroInteractiveTerminal";
+import HeroMobileImage from "../../components/HeroMobileImage";
 
 const Home = () => {
   return (
@@ -34,7 +37,10 @@ const Home = () => {
           transition={{ duration: 3, ease: "easeOut" }}
           className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#8749f2] my-3 md:my-5"
         >
-          Madhubalan
+          <span className="relative inline-block">
+            Madhubalan
+            <CyberSpider />
+          </span>
         </motion.div>
 
         <motion.div
@@ -105,23 +111,15 @@ const Home = () => {
         </motion.div>
       </div>
 
-      <motion.div
-        className="w-full lg:w-1/2 flex justify-center lg:justify-end"
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false, amount: 0.8 }}
-        transition={{ duration: 2.5, delay: 0.5, ease: "easeInOut" }}
-      >
-        <motion.img
-          src={Images.UserImages.home_Image}
-          alt="User"
-          className="w-[50%] md:w-[70%] lg:w-full h-auto object-contain max-h-[60vh]"
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false, amount: 0.8 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        />
-      </motion.div>
+      {/* Tablet + Desktop: Interactive Terminal (sm ≥ 640px) */}
+      <div className="hidden sm:flex w-full lg:w-1/2 justify-center lg:justify-end items-center">
+        <HeroInteractiveTerminal />
+      </div>
+
+      {/* Phone only: 3D About Image (< 640px) */}
+      <div className="flex sm:hidden w-full justify-center items-center py-2">
+        <HeroMobileImage />
+      </div>
     </div>
   );
 };
